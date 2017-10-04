@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<!-- These define what i want to secure -->
+	<http auto-config='true'>
+    	<security:intercept-url pattern="/customer/list" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+    	<security:intercept-url pattern="/customer/eqList" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+    	
+    	<security:intercept-url pattern="/customer/add" access="hasRole('ROLE_ADMIN')" />
+    	<security:intercept-url pattern="/customer/del" access="hasRole('ROLE_ADMIN')" />
+    	
+    	<security:intercept-url pattern="/customer/eqAdd" access="hasRole('ROLE_ADMIN')" />
+    	<security:intercept-url pattern="/customer/eqDel" access="hasRole('ROLE_ADMIN')" />
+    	   	
+    	<security:logout logout-success-url="/login" invalidate-session="true" logout-url="/j_spring_security_logout" />
+    	<security:form-login default-target-url="/customer" />
+    	<security:csrf disabled="true"/>
+    	<http-basic />
+    	<security:headers /> 
+  	</http>
+
+	<!-- These define how i want to secure -->
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="admin" password="qwerty" authorities="ROLE_ADMIN" />
+				<user name="user" password="pass" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
