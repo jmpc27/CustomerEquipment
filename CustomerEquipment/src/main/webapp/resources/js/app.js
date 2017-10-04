@@ -45,7 +45,6 @@ Ext.onReady(function() {
 					idProperty: 'idEquipment'
 				});
 				/* ##################################################################### */
-				
 				/* ############## Customer and Address store ########################### */				
 				var customerStore = Ext.create("Ext.data.Store", {
 					model : "Customer",

@@ -53,10 +53,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<property name="cacheSeconds" value="0" />
-	</bean>
-	
 	<mvc:resources mapping="/resources/**" location="/resources/extjs/" />
 	<mvc:resources mapping="/images/**" location="/resources/images/" />
 	<mvc:resources mapping="/js/**" location="/resources/js/" />
