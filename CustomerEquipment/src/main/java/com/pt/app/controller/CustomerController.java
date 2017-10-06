@@ -39,7 +39,7 @@ public class CustomerController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String welcome (){
-		return "customer"; // It will be resolved to customer.jsp
+		return "customer";
 	}
 		
 	@ResponseStatus(value=HttpStatus.OK)
