@@ -81,9 +81,4 @@ public class CustomerDaoImpl implements CustomerDao{
 		session.getTransaction().commit();
 		session.close();		
 	}
-	
-	
-	
-	
-
 }
